@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout code'){
             agent any
             steps {
-                git branch 'source', url:'https://github.com/Sanegv/jenkins-test'
+                git branch: 'source', url:'https://github.com/Sanegv/jenkins-test'
             }
         }
         stage('Build') {
