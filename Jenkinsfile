@@ -8,7 +8,7 @@ pipeline {
             }
             steps {
                 git branch: 'source', url:'https://github.com/Sanegv/jenkins-test'
-                sh 'pip install -r requirements'
+                sh 'pip install -r requirements.txt'
             }
         }
         stage('Test') {
