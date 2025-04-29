@@ -12,8 +12,13 @@ pipeline {
             }
         }
         stage('Test') {
+            agent{
+                label 'docker-agent-python-test'
+            }
             steps {
-                echo 'Testing..'
+                git branch: 'source', url:'https://github.com/Sanegv/jenkins-test'
+                sh 'pip install -r back/requirements.txt'
+                sh 'py back/app_test.py'
             }
         }
         stage('Deploy') {
