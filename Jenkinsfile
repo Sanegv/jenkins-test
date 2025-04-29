@@ -1,10 +1,14 @@
 pipeline {
-    agent any
+    agent none  
  
     stages {
         stage('Build') {
+            agent{
+                label 'docker-agent-python'
+            }
             steps {
-                echo 'Building..'
+                git branch: 'source', url:'https://github.com/Sanegv/jenkins-test'
+                sh 'pip install -r back/requirements.txt'
             }
         }
         stage('Test') {
