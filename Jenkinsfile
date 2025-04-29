@@ -18,7 +18,7 @@ pipeline {
             steps {
                 git branch: 'source', url:'https://github.com/Sanegv/jenkins-test'
                 sh 'pip install -r back/requirements.txt'
-                sh 'py back/app_test.py'
+                sh 'python3 back/app_test.py'
             }
         }
         stage('Deploy') {
